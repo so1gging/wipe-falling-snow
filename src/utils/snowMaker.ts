@@ -1,4 +1,4 @@
-interface Snow {
+interface SnowMaker {
   x: number
   y: number
   size: number
@@ -6,13 +6,13 @@ interface Snow {
   direction: number
 }
 
-export const Snowly = (canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D) => ({
-  data: [] as Snow[],
+export const SnowMaker = (canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D) => ({
+  data: [] as SnowMaker[],
   canvasWidth: canvas.clientWidth,
   canvasHeight: canvas.clientHeight,
 
   make() {
-    const data: Snow[] = []
+    const data: SnowMaker[] = []
 
     // 랜덤한 데이터 200개 생성
     for (let i = 0; i < 200; i++) {
@@ -26,7 +26,7 @@ export const Snowly = (canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D)
       data.push({ x, y, size, speed, direction })
     }
 
-    // Snow 객체에 데이터 저장
+    // SnowMaker 객체에 데이터 저장
     this.data = data
   },
 
