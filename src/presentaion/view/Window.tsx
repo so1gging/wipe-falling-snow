@@ -1,4 +1,4 @@
-import SnowCanvas from '../components/SnowCanvas/SnowCanvas.tsx'
+import SnowCanvas from '../domains/SnowCanvas/SnowCanvas.tsx'
 
 export default function Window() {
   return (
