@@ -1,4 +1,5 @@
 import { PropsWithChildren } from 'react'
+import Wrapper from '@/context/WrapperContext.tsx'
 
 export default function Layout({ children }: PropsWithChildren) {
   return (
@@ -11,16 +12,7 @@ export default function Layout({ children }: PropsWithChildren) {
         backgroundColor: '#F0F2F2',
       }}
     >
-      <div
-        style={{
-          minWidth: '340px',
-          maxWidth: '744px',
-          width: '100%',
-          backgroundColor: 'white',
-        }}
-      >
-        {children}
-      </div>
+      <Wrapper>{children}</Wrapper>
     </div>
   )
 }
