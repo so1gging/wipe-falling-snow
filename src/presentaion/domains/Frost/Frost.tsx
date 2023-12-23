@@ -9,6 +9,10 @@ export default function Frost({ size }: FrostProps) {
   const DEFAULT_ARRAY = Array.from(Array(size), () => new Array(size).fill(0))
   const [window, setWindow] = useState(DEFAULT_ARRAY)
 
+  if (window.length !== size) {
+    setWindow(DEFAULT_ARRAY)
+  }
+
   const toUpdateWindow = () => {
     const x = getRandomIntegerWithinBounds(0, size)
     const y = getRandomIntegerWithinBounds(0, size)
