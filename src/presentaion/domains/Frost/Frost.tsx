@@ -4,19 +4,20 @@ import { getRandomIntegerWithinBounds } from '@/utils/random.ts'
 import FrostFlake from '@/presentaion/domains/Frost/FrostFlake.tsx'
 
 interface FrostProps {
-  size: number
+  xSize: number
+  ySize: number
 }
-export default function Frost({ size }: FrostProps) {
-  const DEFAULT_ARRAY = Array.from(Array(size), () => new Array(size).fill(0))
+export default function Frost({ xSize, ySize }: FrostProps) {
+  const DEFAULT_ARRAY = Array.from(Array(xSize), () => new Array(ySize).fill(0))
   const [window, setWindow] = useState(DEFAULT_ARRAY)
 
-  if (window.length !== size) {
+  if (window.length !== xSize) {
     setWindow(DEFAULT_ARRAY)
   }
 
   const toUpdateWindow = () => {
-    const x = getRandomIntegerWithinBounds(0, size)
-    const y = getRandomIntegerWithinBounds(0, size)
+    const x = getRandomIntegerWithinBounds(0, xSize)
+    const y = getRandomIntegerWithinBounds(0, ySize)
     setWindow((prev) => {
       prev[x][y] += 1
       return [...prev]
