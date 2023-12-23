@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
 import Home from '@/presentaion/view/Home.tsx'
-import Window from '@/presentaion/view/Window.tsx'
+import Window from '@/presentaion/view/window/Window.tsx'
 
 function AppRouter() {
   return (
