@@ -23,7 +23,7 @@ function SnowCanvas({ width, height, children }: PropsWithChildren<SnowCanvasPro
 
   return (
     <SnowCanvasContext.Provider value={state}>
-      <canvas ref={refCallback} width={width} height={height} style={{ backgroundColor: 'blue' }}>
+      <canvas ref={refCallback} width={width} height={height}>
         <FlakeLayout>{children}</FlakeLayout>
       </canvas>
     </SnowCanvasContext.Provider>
