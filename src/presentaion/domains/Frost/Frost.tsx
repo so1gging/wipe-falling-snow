@@ -60,6 +60,8 @@ export default function Frost({ xSize, ySize }: FrostProps) {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
+                  backgroundColor: '#F0F2F2',
+                  opacity: column * 0.1,
                   color: '#5E7B8C',
                 }}
               >
