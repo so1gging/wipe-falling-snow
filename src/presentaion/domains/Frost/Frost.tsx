@@ -16,10 +16,13 @@ export default function Frost({ xSize, ySize }: FrostProps) {
   }
 
   const toUpdateWindow = () => {
-    const x = getRandomIntegerWithinBounds(0, xSize)
-    const y = getRandomIntegerWithinBounds(0, ySize)
+    const count = getRandomIntegerWithinBounds(0, 10)
     setWindow((prev) => {
-      prev[x][y] += 1
+      for (let i = 0; i < count; i++) {
+        const x = getRandomIntegerWithinBounds(0, xSize)
+        const y = getRandomIntegerWithinBounds(0, ySize)
+        prev[x][y] += 1
+      }
       return [...prev]
     })
   }
