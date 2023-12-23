@@ -55,8 +55,8 @@ function Flake() {
     }
 
     const snow = SnowMaker(slowlyState.canvas, context)
-    const ss = snow.init()
-    return () => cancelAnimationFrame(ss)
+    const animationNumber = snow.init()
+    return () => cancelAnimationFrame(animationNumber)
   }, [slowlyState.canvas])
 
   return <></>
