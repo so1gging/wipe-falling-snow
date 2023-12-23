@@ -21,7 +21,7 @@ const FlakeMaker = (canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D) =>
       const x = getRandomWithinBounds(0, this.canvasWidth)
       const y = getRandomWithinBounds(0, this.canvasHeight)
 
-      const size = getRandomWithinBounds(0.5, 3)
+      const size = getRandomWithinBounds(1, 5)
       const speed = getRandomWithinBounds(0.1, 0.4)
       const direction = [-1, 1][Math.floor(getRandomWithinBounds(0, 2))]
 
@@ -37,12 +37,15 @@ const FlakeMaker = (canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D) =>
    */
   draw() {
     ctx.clearRect(0, 0, this.canvasWidth, this.canvasHeight)
-    ctx.fillStyle = '#0f1018'
+    // ctx.fillStyle = '#0f1018'
+    ctx.fillStyle = '#ffffff'
     ctx.fillRect(0, 0, this.canvasWidth, this.canvasHeight)
 
     this.data.forEach((item) => {
       ctx.beginPath()
-      ctx.fillStyle = 'rgba(255, 255, 255, .6)'
+      // TODO: 색상 변경
+      // ctx.fillStyle = 'rgba(255, 255, 255, .6)'
+      ctx.fillStyle = 'rgba(55, 255, 255, .6)'
       ctx.arc(item.x, item.y, item.size, 0, Math.PI * 2)
       ctx.fill()
       ctx.closePath()
