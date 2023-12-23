@@ -37,8 +37,7 @@ const FlakeMaker = (canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D) =>
    */
   draw() {
     ctx.clearRect(0, 0, this.canvasWidth, this.canvasHeight)
-    // ctx.fillStyle = '#0f1018'
-    ctx.fillStyle = '#ffffff'
+    ctx.fillStyle = '#0f1018'
     ctx.fillRect(0, 0, this.canvasWidth, this.canvasHeight)
 
     this.data.forEach((item) => {
