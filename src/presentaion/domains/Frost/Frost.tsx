@@ -52,13 +52,12 @@ export default function Frost({ xSize, ySize }: FrostProps) {
               <div
                 key={`column-${column}-${y}`}
                 style={{
-                  width: '10px',
-                  height: '10px',
+                  width: '22px',
+                  height: '22px',
                   display: 'flex',
-                  padding: '5px',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  border: '1px solid black',
+                  color: '#5E7B8C',
                 }}
               >
                 {column}
