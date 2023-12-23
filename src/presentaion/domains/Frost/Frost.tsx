@@ -11,7 +11,7 @@ export default function Frost({ xSize, ySize }: FrostProps) {
   const DEFAULT_ARRAY = Array.from(Array(xSize), () => new Array(ySize).fill(0))
   const [window, setWindow] = useState(DEFAULT_ARRAY)
 
-  if (window.length !== xSize) {
+  if (window.length !== xSize || window[0].length !== ySize) {
     setWindow(DEFAULT_ARRAY)
   }
 
