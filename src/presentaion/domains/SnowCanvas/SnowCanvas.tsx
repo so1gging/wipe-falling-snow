@@ -1,5 +1,5 @@
 import { createContext, PropsWithChildren, useCallback, useContext, useEffect, useState } from 'react'
-import { SnowMaker } from '../../../utils/snowMaker.ts'
+import FlakeMaker from '../../../utils/flakeMaker.ts'
 
 interface SnowCanvasProps {
   width: number // 캔버스 width
@@ -54,9 +54,9 @@ function Flake() {
       return
     }
 
-    const snow = SnowMaker(slowlyState.canvas, context)
-    const animationNumber = snow.init()
-    return () => cancelAnimationFrame(animationNumber)
+    const flake = FlakeMaker(slowlyState.canvas, context)
+    const frameNumber = flake.init()
+    return () => cancelAnimationFrame(frameNumber)
   }, [slowlyState.canvas])
 
   return <></>
