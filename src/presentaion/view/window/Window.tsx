@@ -11,7 +11,6 @@ export default function Window() {
   })
   const xSize = Math.floor(screen.width / 10 / 2.2 + 1)
   const ySize = Math.floor(screen.height / 10 / 2.2)
-  console.log(ySize)
 
   useEffect(() => {
     const resize = () => {
