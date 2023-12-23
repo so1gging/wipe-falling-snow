@@ -21,7 +21,7 @@ const FlakeMaker = (canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D) =>
       const x = getRandomWithinBounds(0, this.canvasWidth)
       const y = getRandomWithinBounds(0, this.canvasHeight)
 
-      const size = getRandomWithinBounds(0, 1)
+      const size = getRandomWithinBounds(0.5, 3)
       const speed = getRandomWithinBounds(0.1, 0.4)
       const direction = [-1, 1][Math.floor(getRandomWithinBounds(0, 2))]
 
