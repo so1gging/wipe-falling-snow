@@ -1,17 +1,17 @@
 import { createContext, PropsWithChildren, useCallback, useContext, useEffect, useState } from 'react'
 import { SnowMaker } from '../../../utils/snowMaker.ts'
 
-interface SnowlyProps {
+interface SnowCanvasProps {
   width: number
   height: number
 }
-interface SnowlyContextType extends SnowlyProps {
+interface SnowCanvasContextProps extends SnowCanvasProps {
   canvas: HTMLCanvasElement | null
 }
-const SnowlyContext = createContext<SnowlyContextType>({} as SnowlyContextType)
+const SnowCanvasContext = createContext<SnowCanvasContextProps>({} as SnowCanvasContextProps)
 
-function Snowly({ width, height, children }: PropsWithChildren<SnowlyProps>) {
-  const [state, setState] = useState<SnowlyContextType>({
+function SnowCanvas({ width, height, children }: PropsWithChildren<SnowCanvasProps>) {
+  const [state, setState] = useState<SnowCanvasContextProps>({
     canvas: null,
     width,
     height,
@@ -22,22 +22,22 @@ function Snowly({ width, height, children }: PropsWithChildren<SnowlyProps>) {
   }, [])
 
   return (
-    <SnowlyContext.Provider value={state}>
+    <SnowCanvasContext.Provider value={state}>
       <canvas ref={refCallback} width={width} height={height} style={{ backgroundColor: 'blue' }}>
         <Container>{children}</Container>
       </canvas>
-    </SnowlyContext.Provider>
+    </SnowCanvasContext.Provider>
   )
 }
 
 function Container({ children }: PropsWithChildren) {
-  const snowlyState = useContext(SnowlyContext)
+  const state = useContext(SnowCanvasContext)
 
-  if (Object.keys(snowlyState).length === 0) {
+  if (Object.keys(state).length === 0) {
     return null
   }
 
-  if (!snowlyState.canvas) {
+  if (!state.canvas) {
     return null
   }
 
@@ -45,7 +45,7 @@ function Container({ children }: PropsWithChildren) {
 }
 
 function Flake() {
-  const slowlyState = useContext(SnowlyContext)
+  const slowlyState = useContext(SnowCanvasContext)
 
   useEffect(() => {
     const context = slowlyState.canvas?.getContext('2d')
@@ -62,6 +62,6 @@ function Flake() {
   return <></>
 }
 
-Snowly.Flake = Flake
+SnowCanvas.Flake = Flake
 
-export default Snowly
+export default SnowCanvas
