@@ -2,8 +2,8 @@ import { createContext, PropsWithChildren, useCallback, useContext, useEffect, u
 import { SnowMaker } from '../../../utils/snowMaker.ts'
 
 interface SnowCanvasProps {
-  width: number
-  height: number
+  width: number // 캔버스 width
+  height: number // 캔버스 height
 }
 interface SnowCanvasContextProps extends SnowCanvasProps {
   canvas: HTMLCanvasElement | null
