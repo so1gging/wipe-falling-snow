@@ -1,5 +1,5 @@
 import { createContext, PropsWithChildren, useCallback, useContext, useEffect, useState } from 'react'
-import FlakeMaker from '../../../utils/flakeMaker.ts'
+import FlakeMaker from '@/utils/flakeMaker.ts'
 
 interface SnowCanvasProps {
   width: number // 캔버스 width

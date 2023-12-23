@@ -1,4 +1,4 @@
-import { getRandomWithinBounds } from './random.ts'
+import { getRandomWithinBounds } from '@/utils/random.ts'
 
 interface Flake {
   x: number
