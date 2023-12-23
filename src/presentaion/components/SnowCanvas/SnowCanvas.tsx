@@ -24,13 +24,13 @@ function SnowCanvas({ width, height, children }: PropsWithChildren<SnowCanvasPro
   return (
     <SnowCanvasContext.Provider value={state}>
       <canvas ref={refCallback} width={width} height={height} style={{ backgroundColor: 'blue' }}>
-        <Container>{children}</Container>
+        <FlakeLayout>{children}</FlakeLayout>
       </canvas>
     </SnowCanvasContext.Provider>
   )
 }
 
-function Container({ children }: PropsWithChildren) {
+function FlakeLayout({ children }: PropsWithChildren) {
   const state = useContext(SnowCanvasContext)
 
   if (Object.keys(state).length === 0) {
