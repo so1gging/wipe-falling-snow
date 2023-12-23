@@ -39,7 +39,10 @@ export default function Frost({ xSize, ySize }: FrostProps) {
                 key={`column-${column}-${y}`}
                 onMouseenter={() => {
                   setWindow((prev) => {
-                    prev[x][y] -= 1
+                    prev[x][y] -= 2
+                    if (prev[x][y] < 0) {
+                      prev[x][y] = 0
+                    }
                     return [...prev]
                   })
                 }}
