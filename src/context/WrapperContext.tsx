@@ -1,4 +1,5 @@
 import { createContext, PropsWithChildren, useCallback, useState } from 'react'
+import { ROOT_WIDTH } from '@/utils/const.ts'
 
 type WrapperContextType = {
   element: HTMLDivElement
@@ -17,9 +18,7 @@ export default function Wrapper({ children }: PropsWithChildren) {
       <div
         ref={callback}
         style={{
-          minWidth: '340px',
-          maxWidth: '744px',
-          width: '100%',
+          width: `${ROOT_WIDTH}px`,
           backgroundColor: 'white',
         }}
       >
