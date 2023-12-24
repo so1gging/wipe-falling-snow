@@ -1,5 +1,5 @@
 import { createContext, PropsWithChildren, useCallback, useState } from 'react'
-import { ROOT_WIDTH } from '@/utils/const.ts'
+import { ROOT_SIZE } from '@/utils/const.ts'
 
 type WrapperContextType = {
   element: HTMLDivElement
@@ -18,7 +18,8 @@ export default function Wrapper({ children }: PropsWithChildren) {
       <div
         ref={callback}
         style={{
-          width: `${ROOT_WIDTH}px`,
+          width: `${ROOT_SIZE}px`,
+          height: `${ROOT_SIZE}px`,
           backgroundColor: 'white',
         }}
       >
