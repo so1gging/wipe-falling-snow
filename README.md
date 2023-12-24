@@ -1,30 +1,10 @@
-# React + TypeScript + Vite
+<div align="center">
+  <img src="https://github.com/so1gging/wipe-falling-snow/assets/65271008/77f8e9d8-2179-45a8-a618-dcaa156a9857" width="400px"/>
+</div>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> 항해 코육대 제출을 위한 프로젝트 입니다.🔥
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## 미션
+- 눈이 계속 쌓여 하얀 화면을 구현합니다.
+- 마우스 커서/터치에 따라 하얗게 쌓인 눈이 닦이는 웹/앱을 구현하세요.
+- 닦인 화면에도 눈이 쌓이고, 다시 하얗게 변합니다.
