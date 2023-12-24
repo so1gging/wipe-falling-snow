@@ -3,6 +3,7 @@ import { getRandomIntegerWithinBounds } from '@/utils/random.ts'
 import { MouseTriggerContext } from '@/context/MouseTriggerContext.tsx'
 import { WrapperContext } from '@/context/WrapperContext.tsx'
 import { toReverseMouseMove } from '@/utils/logic.ts'
+import { FROST_UNIT_WIDTH } from '@/utils/const.ts'
 
 interface FrostProps {
   xSize: number
@@ -49,8 +50,8 @@ export default function Frost({ xSize, ySize }: FrostProps) {
 
         const item: Item = {
           count: prev[x][y].count + 1,
-          x: x * 22,
-          y: y * 22,
+          x: x * FROST_UNIT_WIDTH,
+          y: y * FROST_UNIT_WIDTH,
           isVisible: true,
         }
         prev[x][y] = item
@@ -100,13 +101,13 @@ export default function Frost({ xSize, ySize }: FrostProps) {
               top: item.y,
               left: item.x,
               position: 'absolute',
-              width: '22px',
-              height: '22px',
+              width: `${FROST_UNIT_WIDTH}px`,
+              height: `${FROST_UNIT_WIDTH}px`,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               backgroundColor: '#F0F2F2',
-              opacity: item.count * 0.3,
+              opacity: item.count * 0.4,
               color: '#5E7B8C',
             }}
           />

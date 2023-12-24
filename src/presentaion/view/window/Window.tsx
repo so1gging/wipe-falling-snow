@@ -3,6 +3,7 @@ import { WrapperContext } from '@/context/WrapperContext.tsx'
 import Frost from '@/presentaion/domains/Frost/Frost.tsx'
 import SnowCanvas from '@/presentaion/domains/SnowCanvas/SnowCanvas.tsx'
 import MouseTrigger from '@/context/MouseTriggerContext.tsx'
+import { FROST_UNIT_WIDTH } from '@/utils/const.ts'
 
 export default function Window() {
   const wrapperContext = useContext(WrapperContext)
@@ -10,8 +11,8 @@ export default function Window() {
     width: wrapperContext.element.offsetWidth,
     height: wrapperContext.element.offsetHeight,
   })
-  const xSize = Math.floor(screen.width / 10 / 2.2 + 1)
-  const ySize = Math.floor(screen.height / 10 / 2.2)
+  const xSize = Math.floor(screen.width / FROST_UNIT_WIDTH + 1)
+  const ySize = Math.floor(screen.height / FROST_UNIT_WIDTH)
 
   useEffect(() => {
     const resize = () => {
