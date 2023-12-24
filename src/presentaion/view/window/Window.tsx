@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from 'react'
 import { WrapperContext } from '@/context/WrapperContext.tsx'
 import Frost from '@/presentaion/domains/Frost/Frost.tsx'
 import SnowCanvas from '@/presentaion/domains/SnowCanvas/SnowCanvas.tsx'
+import MouseTrigger from '@/context/MouseTriggerContext.tsx'
 
 export default function Window() {
   const wrapperContext = useContext(WrapperContext)
@@ -27,13 +28,15 @@ export default function Window() {
   })
 
   return (
-    <div style={{ position: 'relative' }}>
-      <SnowCanvas width={screen.width} height={screen.height}>
-        <SnowCanvas.Flake />
-      </SnowCanvas>
-      <div style={{ position: 'absolute', top: 0 }}>
-        <Frost xSize={ySize} ySize={xSize} />
+    <MouseTrigger>
+      <div style={{ position: 'relative' }}>
+        <SnowCanvas width={screen.width} height={screen.height}>
+          <SnowCanvas.Flake />
+        </SnowCanvas>
+        <div style={{ position: 'absolute', top: 0 }}>
+          <Frost xSize={ySize} ySize={xSize} />
+        </div>
       </div>
-    </div>
+    </MouseTrigger>
   )
 }
