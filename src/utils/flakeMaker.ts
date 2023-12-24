@@ -42,10 +42,8 @@ const FlakeMaker = (canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D) =>
 
     this.data.forEach((item) => {
       ctx.beginPath()
-      // TODO: 색상 변경
-      // ctx.fillStyle = 'rgba(255, 255, 255, .6)'
       ctx.fillStyle = 'rgba(55, 255, 255, .6)'
-      ctx.arc(item.x, item.y, item.size, 0, Math.PI * 2)
+      ctx.rect(item.x, item.y, item.size, item.size)
       ctx.fill()
       ctx.closePath()
     })
