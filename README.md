@@ -2,7 +2,7 @@
   <img src="https://github.com/so1gging/wipe-falling-snow/assets/65271008/77f8e9d8-2179-45a8-a618-dcaa156a9857" width="400px"/>
 </div>
 
-> 항해 코육대 제출을 위한 프로젝트 입니다.🔥
+> 외부 공모전 제출을 위한 프로젝트 입니다.🔥
 
 ## 미션
 - 눈이 계속 쌓여 하얀 화면을 구현합니다.
