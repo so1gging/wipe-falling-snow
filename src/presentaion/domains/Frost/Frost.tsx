@@ -3,7 +3,7 @@ import { getRandomIntegerWithinBounds } from '@/utils/random.ts'
 import { MouseTriggerContext } from '@/context/MouseTriggerContext.tsx'
 import { WrapperContext } from '@/context/WrapperContext.tsx'
 import { toReverseMouseMove } from '@/utils/logic.ts'
-import { FROST_UNIT_WIDTH } from '@/utils/const.ts'
+import { FROST_UNIT_WIDTH, ROOT_SIZE } from '@/utils/const.ts'
 
 interface FrostProps {
   xSize: number
@@ -83,6 +83,15 @@ export default function Frost({ xSize, ySize }: FrostProps) {
             const movePosition = move(pointer.x, pointer.y, item.x, item.y)
             prev[x][y].x = movePosition.x
             prev[x][y].y = movePosition.y
+
+            const isMinOverPositionX = -10 > movePosition.x
+            const isMaxOverPositionX = movePosition.x > ROOT_SIZE
+            const isOverPositionY = movePosition.y > ROOT_SIZE
+            const isMinPositionY = movePosition.y < 0
+
+            if (isMinOverPositionX || isMaxOverPositionX || isOverPositionY || isMinPositionY) {
+              prev[x][y].count = 0
+            }
           }
         }),
       )
