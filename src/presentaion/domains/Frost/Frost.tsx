@@ -23,7 +23,7 @@ export default function Frost({ xSize, ySize }: FrostProps) {
 
   const pointer = {
     x: mouseContext.x - wrapperContext.element.offsetLeft,
-    y: mouseContext.y,
+    y: mouseContext.y - wrapperContext.element.offsetTop,
   }
 
   const DEFAULT_ARRAY: Item[][] = Array.from(Array(xSize), () =>
