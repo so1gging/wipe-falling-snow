@@ -34,7 +34,7 @@ export default function Window() {
           <SnowCanvas.Flake />
         </SnowCanvas>
         <div style={{ position: 'absolute', top: 0 }}>
-          <Frost xSize={ySize} ySize={xSize} />
+          <Frost xSize={xSize} ySize={ySize} />
         </div>
       </div>
     </MouseTrigger>
