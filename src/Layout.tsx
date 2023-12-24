@@ -9,6 +9,7 @@ export default function Layout({ children }: PropsWithChildren) {
         height: '100vh',
         display: 'flex',
         justifyContent: 'center',
+        alignItems: 'center',
         backgroundColor: '#F0F2F2',
       }}
     >
