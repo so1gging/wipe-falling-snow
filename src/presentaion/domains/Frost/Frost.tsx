@@ -4,6 +4,7 @@ import { MouseTriggerContext } from '@/context/MouseTriggerContext.tsx'
 import { WrapperContext } from '@/context/WrapperContext.tsx'
 import { toReverseMouseMove } from '@/utils/logic.ts'
 import { FROST_UNIT_WIDTH, ROOT_SIZE } from '@/utils/const.ts'
+import usePointStore from '@/stores/point/store.ts'
 
 interface FrostProps {
   xSize: number
@@ -20,6 +21,7 @@ interface Item {
 export default function Frost({ xSize, ySize }: FrostProps) {
   const wrapperContext = useContext(WrapperContext)
   const mouseContext = useContext(MouseTriggerContext)
+  const { onIncrease } = usePointStore()
 
   const pointer = {
     x: mouseContext.x - wrapperContext.element.offsetLeft,
@@ -92,6 +94,7 @@ export default function Frost({ xSize, ySize }: FrostProps) {
             if (isMinOverPositionX || isMaxOverPositionX || isOverPositionY || isMinPositionY) {
               prev[x][y].count = 0
               prev[x][y].isVisible = false
+              onIncrease()
             }
           }
         }),
