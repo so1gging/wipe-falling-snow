@@ -16,8 +16,10 @@ export default function Wrapper({ children }: PropsWithChildren) {
   return (
     <WrapperContext.Provider value={state}>
       <div
+        id="root-wrapper"
         ref={callback}
         style={{
+          position: 'relative',
           width: `${ROOT_SIZE}px`,
           height: `${ROOT_SIZE}px`,
           backgroundColor: 'white',
