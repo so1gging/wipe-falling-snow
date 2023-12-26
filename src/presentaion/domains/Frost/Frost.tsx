@@ -71,7 +71,7 @@ export default function Frost({ xSize, ySize }: FrostProps) {
       }
     }
 
-    const timer = setInterval(tick, 1000)
+    const timer = setInterval(tick, 3000)
     return () => clearInterval(timer)
   }, [])
 
@@ -79,7 +79,7 @@ export default function Frost({ xSize, ySize }: FrostProps) {
     setWindow((prev) => {
       prev.forEach((row, x) =>
         row.forEach((item, y) => {
-          if (isCrush(pointer.x, pointer.y, item.x, item.y)) {
+          if (isCrush(pointer.x, pointer.y, item.x, item.y) && item.isVisible) {
             const movePosition = move(pointer.x, pointer.y, item.x, item.y)
             prev[x][y].x = movePosition.x
             prev[x][y].y = movePosition.y
@@ -91,6 +91,7 @@ export default function Frost({ xSize, ySize }: FrostProps) {
 
             if (isMinOverPositionX || isMaxOverPositionX || isOverPositionY || isMinPositionY) {
               prev[x][y].count = 0
+              prev[x][y].isVisible = false
             }
           }
         }),
@@ -98,14 +99,16 @@ export default function Frost({ xSize, ySize }: FrostProps) {
 
       return [...prev]
     })
-  }, [pointer.x, pointer.y])
+  }, [pointer.x])
 
   return (
     <div style={{ position: 'relative' }}>
-      {window.map((row, x) =>
-        row.map((item, y) => (
+      {window
+        .flat()
+        .filter((o) => o.isVisible)
+        .map((item, index) => (
           <div
-            key={`item-${x}-${y}-${item.y}`}
+            key={`item-${item.x}-${item.y}-${index}`}
             style={{
               top: item.y,
               left: item.x,
@@ -120,8 +123,7 @@ export default function Frost({ xSize, ySize }: FrostProps) {
               color: '#5E7B8C',
             }}
           />
-        )),
-      )}
+        ))}
     </div>
   )
 }
