@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://github.com/so1gging/wipe-falling-snow/assets/65271008/77f8e9d8-2179-45a8-a618-dcaa156a9857" width="400px"/>
+<img src="public/kor-logo.png" width="300px"/>
 </div>
 
 > 외부 공모전 제출을 위한 프로젝트 입니다.🔥
