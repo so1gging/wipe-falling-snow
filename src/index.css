@@ -9,3 +9,8 @@ body {
     margin: 0;
     font-family: 'NeoDunggeunmo', serif;
 }
+
+a {
+    text-decoration: none;
+    color: unset;
+}

@@ -29,7 +29,9 @@ export default function Home() {
           }}
         />
       </div>
-      <Link to="/window">START</Link>
+      <Link to="/window" style={{ color: 'white' }}>
+        START
+      </Link>
     </div>
   )
 }
