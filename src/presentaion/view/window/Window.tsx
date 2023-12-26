@@ -4,8 +4,10 @@ import Frost from '@/presentaion/domains/Frost/Frost.tsx'
 import SnowCanvas from '@/presentaion/domains/SnowCanvas/SnowCanvas.tsx'
 import MouseTrigger from '@/context/MouseTriggerContext.tsx'
 import { FROST_UNIT_WIDTH } from '@/utils/const.ts'
+import usePointStore from '@/stores/point/store.ts'
 
 export default function Window() {
+  const { point } = usePointStore()
   const wrapperContext = useContext(WrapperContext)
   const screen = {
     width: wrapperContext.element.offsetWidth,
@@ -22,6 +24,9 @@ export default function Window() {
         </SnowCanvas>
         <div style={{ position: 'absolute', top: 0 }}>
           <Frost xSize={xSize} ySize={ySize} />
+        </div>
+        <div style={{ position: 'absolute', bottom: 10, right: 10 }}>
+          <span style={{ color: 'white' }}>{point}</span>
         </div>
       </div>
     </MouseTrigger>
