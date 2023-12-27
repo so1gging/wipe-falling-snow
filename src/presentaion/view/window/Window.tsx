@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import IntroGuideFlow from '@/presentaion/domains/IntroGuide/IntroGuideFlow.tsx'
 import SnowWindow from '@/presentaion/view/window/SnowWindow.tsx'
+import usePointStore from '@/stores/point/store.ts'
 
 const flow = [
   '안녕? 나는 루피야.\n보시다시피 눈사람이지.',
@@ -13,7 +14,13 @@ const flow = [
 ]
 
 export default function Window() {
+  const { onClear } = usePointStore()
   const [step, setStep] = useState(0)
+
+  useEffect(() => {
+    onClear()
+    return () => onClear()
+  }, [])
 
   const handleIncrease = () => setStep((prev) => prev + 1)
   return (
