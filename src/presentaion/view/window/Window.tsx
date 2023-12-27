@@ -1,34 +1,24 @@
-import { useContext } from 'react'
-import { WrapperContext } from '@/context/WrapperContext.tsx'
-import Frost from '@/presentaion/domains/Frost/Frost.tsx'
-import SnowCanvas from '@/presentaion/domains/SnowCanvas/SnowCanvas.tsx'
-import MouseTrigger from '@/context/MouseTriggerContext.tsx'
-import { FROST_UNIT_WIDTH } from '@/utils/const.ts'
-import usePointStore from '@/stores/point/store.ts'
+import { useState } from 'react'
+import IntroGuideFlow from '@/presentaion/domains/IntroGuide/IntroGuideFlow.tsx'
+import SnowWindow from '@/presentaion/view/window/SnowWindow.tsx'
+
+const flow = [
+  '안녕? 나는 루피야.\n보시다시피 눈사람이지.',
+  '내 친구 쵸파가\n나를 만들어줬어...',
+  '쵸파와 난,\n둘도 없는 친구가 되었지...',
+  '난 늘 같은 시간 찾아오는\n쵸파를 기다려...',
+  '매일 같은 시간, 쵸파는 늘\n나와 같이 놀아주거든...',
+  '오늘도 쵸파가 와줄거야...',
+  '나랑 같이 쵸파를 기다려줄래?',
+]
 
 export default function Window() {
-  const { point } = usePointStore()
-  const wrapperContext = useContext(WrapperContext)
-  const screen = {
-    width: wrapperContext.element.offsetWidth,
-    height: wrapperContext.element.offsetHeight,
-  }
-  const xSize = Math.floor(screen.width / FROST_UNIT_WIDTH + 1)
-  const ySize = Math.floor(screen.height / FROST_UNIT_WIDTH)
+  const [step, setStep] = useState(0)
 
+  const handleIncrease = () => setStep((prev) => prev + 1)
   return (
-    <MouseTrigger>
-      <div style={{ position: 'relative' }}>
-        <SnowCanvas width={screen.width} height={screen.height}>
-          <SnowCanvas.Flake />
-        </SnowCanvas>
-        <div style={{ position: 'absolute', top: 0 }}>
-          <Frost xSize={xSize} ySize={ySize} />
-        </div>
-        <div style={{ position: 'absolute', bottom: 10, right: 10 }}>
-          <span style={{ color: 'white' }}>{point}</span>
-        </div>
-      </div>
-    </MouseTrigger>
+    <div style={{ width: '100%', height: '100%', backgroundColor: 'black' }}>
+      {step !== flow.length ? <IntroGuideFlow step={step} flow={flow} onIncrease={handleIncrease} /> : <SnowWindow />}
+    </div>
   )
 }
