@@ -21,9 +21,13 @@ export default function MouseTrigger({ children }: PropsWithChildren) {
     }
 
     triggerRef.current.addEventListener('mousemove', mousemove)
+    triggerRef.current.addEventListener('touchmove', mousemove)
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    return () => triggerRef.current?.removeEventListener('mousemove', mousemove)
+    return () => {
+      triggerRef.current?.removeEventListener('mousemove', mousemove)
+      triggerRef.current?.removeEventListener('touchmove', mousemove)
+    }
   })
 
   return (
